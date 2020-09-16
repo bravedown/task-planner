@@ -29,11 +29,17 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Task Planner</h1>
+    <div class="container">
+    <header class="jumbotron">
+      <h1 class="display-3">Task Planner</h1>
+      <p class="lead">Organize Your Day</p>
+      <p id="currentDay" class="lead"></p>
+    </header>
+    <div class="container">
 
     <div class="columns">  
-      <div class="column is-half">First column</div>
-      <div class="column is-half">Second column</div>
+      <div class="column is-half hero is-success">Tasks</div>
+      <div class="column is-half hero is-danger">Calendar</div>
     </div>
 
     <div id="9" class="row time-block"> 
