@@ -26,17 +26,15 @@ function getTask() {
 
 // ------------ getTask end ------------
 
-
-var info;
-var placeTaskState;
 function startPlaceTask() {
     var taskData = $(this).attr("data-task");
     tasks = JSON.parse(localStorage.getItem("tasks"));
     changePage("schedule");
-    placeTaskState = {
+    info.placeTaskState = {
         state: true,
         task: tasks[taskData],
     };
+    
 }
 
 function placeTask() {
