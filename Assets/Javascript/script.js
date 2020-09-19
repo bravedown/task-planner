@@ -8,6 +8,7 @@ function init() {
     generateTasks();
     $(document).on("click", ".timeblock", () => placeTaskState.state ? placeTask() : startGetTask() );
     $(document).on("click", ".task", () => getTaskState.state ? getTask() : startPlaceTask() );
+    $("#new-cat").on("click", makeTaskCategory);
 }
 
 function startPlaceTask() {
@@ -71,9 +72,24 @@ function changePage(goTo){
     $("#" + goTo).css("display", "block");
 }
 
+function generateTasks() {
+    $("#task-cats").empty();
+    Object.keys(info.taskCats).forEach(e => {
+        let newCat = $("<div class='styling here'>")
+        newCat.text(e);
+        $("#task-cats").append(newCat);
+    })
+}
+
+function makeTaskCategory() {
+    info.taskCats[$("#cat-input").val()] = {};
+    storeInfo();
+    generateTasks();
+}
+
 // function editTask(event){
-//     event.stopPropogation();
-//     $(".form").display = block;
+//     event.stopPropagation();
+//     $("#form").css("display", "block");
 //     $("#newTaskName").value = this.parentElement.getElementByClassName("taskName").textContent;
 //     $("#newTaskTime").value = this.parentElement.getElementByClassName("taskTime").textContent;
 //     $("#newTaskCat").value = this.parentElement.getElementByClassName("taskCat").textContent;
