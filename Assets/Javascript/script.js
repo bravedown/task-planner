@@ -20,3 +20,5 @@ function startPlaceTask() {
 function placeTask() {
     $(`#${$(this).attr("data-timeblock")}-task`).text(info.placeTaskState.task);
 }
+
+function storeInfo() {localStorage.setItem("task-planner-data", JSON.stringify(info) )}
