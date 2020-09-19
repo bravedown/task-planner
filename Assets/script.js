@@ -3,6 +3,7 @@
 // $document.on("click", ".schedule-nav", changePage(".schedule"))
 var edit = false;
 var taskID;
+var quote;
 var position = navigator.geolocation.getCurrentPosition(weather);
 function weather(position) {
  
@@ -12,6 +13,7 @@ function weather(position) {
         method: "GET",  
     }).then(function (WeatherData) {
         var today =new Date();
+        $("#quoteText").attr("OuterText","here");
         var dayNum = today.getDay();
         for (var i = 0; i < 7; i++) {
             var j = i + dayNum;
@@ -21,6 +23,23 @@ function weather(position) {
     });
 }
 
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote?token=ipworld.info",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com",
+		"x-rapidapi-key": "86f8075ee1msh6ecee30eacd4ae0p15d6f4jsncf63c4d54671"
+	}
+}
+
+$.ajax(settings).done(function (response) {
+    quote = response;
+    console.log(response)
+    document.getElementById("quoteText").innerHTML = response.text+"\"";
+    document.getElementById("quoteAuthor").innerHTML = "-" + response.author;
+});
 
 function editTask(event){
     event.stopPropogation();
