@@ -2,6 +2,16 @@
 <html lang="en">
   <head>
     <style>
+      div {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+      body {
+        background-color:darkgrey;
+      }
       .footer {
    position: fixed;
    left: 0;
@@ -29,10 +39,10 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <!--Category One 
-      <div class="container">
+    <!-- daily task 1  -->
+      <!-- <div class="container">
       <header class="jumbotron">
-        <h1 class="display-3">Category One</h1>
+        <h1 class="display-3">Daily Tasks</h1>
         <style>
           h1 {text-align: center;}
         </style>
@@ -73,29 +83,42 @@
     </header>
     <style>
       h1 {text-align: center;}
-    </style>
+    </style>  -->
 
 
-   <!-- Daily Task Section
+   <!-- daily task 2 -->
      <div class="container">
     <header class="jumbotron">
-      <h1 class="display-3">Daily Tasks</h1>
-      <p class="lead">Stuff to do</p>
-      <!--enter day/time here
+      <h1 class="title is-1">Daily Tasks</h1>
+     <div id="9" class="row time-block"> 
+      <b><div class="col-md-1 hour">
+        Task
+      </div></b>
+      <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1">Save</button>
+  </div>
+      <!-- <div><b><p class="lead">Task One </b></p>
+      
+      <div id="9" class="row time-block"> 
+        <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1">Save</button>
+  </div> -->
+      <button class="button **is-large is-success is-rounded**">Edit</button>
+      <input type="checkbox" id="task" name="task" value="checkbox">
+      <label for="checkbox"> I have completed this task</label><br>
+      
+        </div>
+ 
+
+      <!-- <p class="lead">Task Two</p>
+      
       <div id="9" class="row time-block"> 
         <textarea class="col-md-10 description"></textarea>
       <button class="btn saveBtn col-md-1">Save</button>
   </div>
       <button class="button **is-large is-success is-rounded**">Edit</button>
-      <p class="lead">Stuff to do</p>
-      <!--enter day/time here
-      <div id="9" class="row time-block"> 
-        <textarea class="col-md-10 description"></textarea>
-      <button class="btn saveBtn col-md-1">Save</button>
-  </div>
-      <button class="button **is-large is-success is-rounded**">Edit</button>
-      <p class="lead">Stuff to do</p>
-      <!--enter day/time here
+      <p class="lead">Task Three</p>
+      
       <div id="9" class="row time-block"> 
         <textarea class="col-md-10 description"></textarea>
       <button class="btn saveBtn col-md-1">Save</button>
@@ -103,14 +126,14 @@
       <button class="button **is-large is-success is-rounded**">Edit</button>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container">
+    <div class="container"> -->
 
       <style>
         h1 {text-align: center;}
-      </style>
+      </style> 
 
-<!--scheduler w/ time blocks
-    <!--<div id="9" class="row time-block"> 
+<!-- scheduler w/ time blocks
+    <div id="9" class="row time-block"> 
       <div class="col-md-1 hour">
         9am
       </div>
@@ -186,7 +209,7 @@
 
 <div class="footer">
   <p>Footer</p>
-</div>
+</div> -->
 
     <!--Link to external Javascript-->
     <script src="./assets/script.js"></script>
