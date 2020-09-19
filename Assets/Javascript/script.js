@@ -87,6 +87,10 @@ function makeTaskCategory() {
     generateTasks();
 }
 
+function makeTask() {
+    
+}
+
 // function editTask(event){
 //     event.stopPropagation();
 //     $("#form").css("display", "block");
@@ -103,15 +107,6 @@ function makeTaskCategory() {
 //     edit = false;
 // }
 
-// function writeTasklist(){
-
-// }
-
-// function changePage(goTo){
-//     $(".tasklist").display = none;
-//     $(".schedule").display = none;
-//     $(goTo).display = block;
-// }
 
 // function makeTask(event){
 //     event.preventDefault();
