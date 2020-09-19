@@ -21,139 +21,165 @@
 
 <body>
   <!DOCTYPE html>
-<html>
+  <html>
+  <section class="section" id="schedule">
+    <div class="container">
+      <div class="tabs is-centered is-toggle is-toggle-rounded" id="scheduleNavbar">
+        <ul>
+          <li id="yearNav" >
+            <a>
+              <span>Year</span>
+            </a>
+          </li>
+          <li id="monthNav" >
+            <a>
+              <span>Month</span>
+            </a>
+          </li>
+          <li id="weekNav" >
+            <a>
+              <span>Week</span>
+            </a>
+          </li>
+          <li id="dayNav" class="is-active">
+            <a>
+              <span>Day</span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-    <!--Add buttons to initiate auth sequence and sign out-->
-    <button id="authorize_button" style="display: none;">Authorize</button>
-    <button id="signout_button" style="display: none;">Sign Out</button>
+      <div class="container" id="weekView">
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Sunday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day0Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+              </div>
+            <button class="button is-warning" id="day0TaskNum">#</button>
+          </div>
+        </nav>
 
-    <pre id="content" style="white-space: pre-wrap;"></pre>
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Monday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day1Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+              </div>
+            <button class="button is-warning"id="day1TaskNum">#</button>
 
-    <script type="text/javascript">
-      // Client ID and API key from the Developer Console
-      var CLIENT_ID = '471562969084-2pitk6edd9hha7d1n9nf66j33rc54psq.apps.googleusercontent.com';
-      var API_KEY = 'AIzaSyBWE3-IR_kJ2cJhUBSXDOrn99q2iDBbclc';
+          </div>
+        </nav>
 
-      // Array of API discovery doc URLs for APIs used by the quickstart
-      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Tuesday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day2Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+              </div>
+            <button class="button is-warning"id="day2TaskNum">#</button>
+          </div>
+        </nav>
 
-      // Authorization scopes required by the API; multiple scopes can be
-      // included, separated by spaces.
-      var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Wednesday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day3Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+              </div>
+            <button class="button is-warning"id="day3TaskNum">#</button>
+          </div>
+        </nav>
 
-      var authorizeButton = document.getElementById('authorize_button');
-      var signoutButton = document.getElementById('signout_button');
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Thursday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day4Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+              </div>
+            <button class="button is-warning"id="day4TaskNum">#</button>
+          </div>
+        </nav>
 
-      /**
-       *  On load, called to load the auth2 library and API client library.
-       */
-      function handleClientLoad() {
-        gapi.load('client:auth2', initClient);
-      }
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Friday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day5Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+              </div>
+            <button class="button is-warning"id="day5TaskNum">#</button>
+          </div>
+        </nav>
 
-      /**
-       *  Initializes the API client library and sets up sign-in state
-       *  listeners.
-       */
-      function initClient() {
-        gapi.client.init({
-          apiKey: API_KEY,
-          clientId: CLIENT_ID,
-          discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES
-        }).then(function () {
-          // Listen for sign-in state changes.
-          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Saturday</strong>
+              </p>
+            </div>
+          </div>
 
-          // Handle the initial sign-in state.
-          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-          authorizeButton.onclick = handleAuthClick;
-          signoutButton.onclick = handleSignoutClick;
-        }, function(error) {
-          appendPre(JSON.stringify(error, null, 2));
-        });
-      }
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+            <img id="day6Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+            </div>
+            <button class="button is-warning"id="day6TaskNum">#</button>
+          </div>
+        </nav>
+      </div>
+  </section>
 
-      /**
-       *  Called when the signed in status changes, to update the UI
-       *  appropriately. After a sign-in, the API is called.
-       */
-      function updateSigninStatus(isSignedIn) {
-        if (isSignedIn) {
-          authorizeButton.style.display = 'none';
-          signoutButton.style.display = 'block';
-          listUpcomingEvents();
-        } else {
-          authorizeButton.style.display = 'block';
-          signoutButton.style.display = 'none';
-        }
-      }
-
-      /**
-       *  Sign in the user upon button click.
-       */
-      function handleAuthClick(event) {
-        gapi.auth2.getAuthInstance().signIn();
-      }
-
-      /**
-       *  Sign out the user upon button click.
-       */
-      function handleSignoutClick(event) {
-        gapi.auth2.getAuthInstance().signOut();
-      }
-
-      /**
-       * Append a pre element to the body containing the given message
-       * as its text node. Used to display the results of the API call.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-      function appendPre(message) {
-        var pre = document.getElementById('content');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-      }
-
-      /**
-       * Print the summary and start datetime/date of the next ten events in
-       * the authorized user's calendar. If no events are found an
-       * appropriate message is printed.
-       */
-      function listUpcomingEvents() {
-        gapi.client.calendar.events.list({
-          'calendarId': 'primary',
-          'timeMin': (new Date()).toISOString(),
-          'showDeleted': false,
-          'singleEvents': true,
-          'maxResults': 10,
-          'orderBy': 'startTime'
-        }).then(function(response) {
-          var events = response.result.items;
-          appendPre('Upcoming events:');
-
-          if (events.length > 0) {
-            for (i = 0; i < events.length; i++) {
-              var event = events[i];
-              var when = event.start.dateTime;
-              if (!when) {
-                when = event.start.date;
-              }
-              appendPre(event.summary + ' (' + when + ')')
-            }
-          } else {
-            appendPre('No upcoming events found.');
-          }
-        });
-      }
-
-    </script>
-
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
- 
   <div class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
@@ -197,32 +223,34 @@
         </form>
       </div>
       <button class="modal-close is-large" aria-label="close"></button>
-    </div></div></div>
-    
-    <nav class="tabs navbar is-fullwidth is-boxed is-toggle is-fixed-bottom">
-        <ul>
-          <li>
-            <a>
-              <span>Tasks</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span>Calendar</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span>Schedule</span>
+    </div>
+  </div>
+  </div>
 
-            </a>
-          </li>
-        </ul>
-    </nav>
+  <nav class="tabs navbar is-fullwidth is-boxed is-toggle is-fixed-bottom">
+    <ul>
+      <li>
+        <a>
+          <span>Tasks</span>
+        </a>
+      </li>
+      <li>
+        <a>
+          <span>Calendar</span>
+        </a>
+      </li>
+      <li>
+        <a>
+          <span>Schedule</span>
 
+        </a>
+      </li>
+    </ul>
+  </nav>
+  </div>
 
-    <!--Link to external Javascript-->
-    <!-- <script src="./assets/script.js"></script> -->
+  <!--Link to external Javascript-->
+  <!-- <script src="./assets/script.js"></script> -->
 </body>
 
 </html>
