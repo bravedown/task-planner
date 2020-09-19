@@ -1,10 +1,25 @@
-$document.on("click", ".edit", editTask)
-$document.on("click", ".tasklist-nav", changePage(".tasklist"))
-$document.on("click", ".schedule-nav", changePage(".schedule"))
+// $document.on("click", ".edit", editTask)
+// $document.on("click", ".tasklist-nav", changePage(".tasklist"))
+// $document.on("click", ".schedule-nav", changePage(".schedule"))
 var edit = false;
-var tasks=[{name: "Thing", time: "date variable", category: "category name", id= 0}];
 var taskID;
+var position = navigator.geolocation.getCurrentPosition(weather);
+function weather(position) {
+ 
+    var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&exclude=minutely,hourly&units=imperial&appid=7e254ff99ca72e0b2e785026f47b52f0";
+    $.ajax({
+        url: queryURL,
+        method: "GET",  
+    }).then(function (WeatherData) {
+        var today =new Date();
+        var dayNum = today.getDay();
+        for (var i = 0; i < 7; i++) {
+            var j = i + dayNum;
+            $("#day" + j + "Icon").attr("src", "http://openweathermap.org/img/wn/" + WeatherData.daily[i].weather[0].icon + "@2x.png");
 
+        }
+    });
+}
 
 
 function editTask(event){
