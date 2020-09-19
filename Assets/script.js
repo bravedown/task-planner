@@ -3,7 +3,6 @@
 // $document.on("click", ".schedule-nav", changePage(".schedule"))
 var edit = false;
 var taskID;
-var quote;
 var position = navigator.geolocation.getCurrentPosition(weather);
 function weather(position) {
  
@@ -35,8 +34,6 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-    quote = response;
-    console.log(response)
     document.getElementById("quoteText").innerHTML = response.text+"\"";
     document.getElementById("quoteAuthor").innerHTML = "-" + response.author;
 });
