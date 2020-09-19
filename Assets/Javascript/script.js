@@ -64,3 +64,9 @@ function makeTimeblock(hour){
     newBlock.append(timeSpan, taskSpan);
     return newBlock;
 }
+
+function changePage(goTo){
+    $("#tasklist").display = none;
+    $("#schedule").display = none;
+    $(goTo).display = block;
+}
