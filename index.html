@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <style>
-      div {
+      /* div {
   background-color: lightgrey;
   width: 300px;
   border: 15px solid green;
   padding: 50px;
   margin: 20px;
-}
+} */
       body {
         background-color:darkgrey;
       }
@@ -91,19 +91,38 @@
     <header class="jumbotron">
       <h1 class="title is-1">Daily Tasks</h1>
      <div id="9" class="row time-block"> 
-      <b><div class="col-md-1 hour">
+      <!-- <b><div class="col-md-1 hour">
         Task
-      </div></b>
-      <textarea class="col-md-10 description"></textarea>
-      <button class="btn saveBtn col-md-1">Save</button>
+      </div></b> -->
+      <!-- <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1">Save</button> -->
   </div>
+
+  <article class="message">
+    <div class="message-header">
+      <b><p>Task</p></b>
+      <button class="delete" aria-label="delete"></button>
+    </div>
+    <div class="message-body">
+      Enter Task Here
+      <div class="columns">
+        <div class="column">
+        </div>
+        <div class="columns">
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+        </div>
+    </div>
+
+  </article>
       <!-- <div><b><p class="lead">Task One </b></p>
       
       <div id="9" class="row time-block"> 
         <textarea class="col-md-10 description"></textarea>
       <button class="btn saveBtn col-md-1">Save</button>
   </div> -->
-      <button class="button **is-large is-success is-rounded**">Edit</button>
+      <button class="button **is-large is-success is-rounded**">Save</button>
       <input type="checkbox" id="task" name="task" value="checkbox">
       <label for="checkbox"> I have completed this task</label><br>
       
