@@ -1,6 +1,6 @@
+
+//Weather Icon
 var position = navigator.geolocation.getCurrentPosition(weather);
-
-
 function weather(position) {
  
     var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&exclude=minutely,hourly&units=imperial&appid=7e254ff99ca72e0b2e785026f47b52f0";
@@ -19,6 +19,7 @@ function weather(position) {
     });
 }
 
+//Quote of the day
 var settings = {
 	"async": true,
 	"crossDomain": true,
@@ -35,6 +36,7 @@ $.ajax(settings).done(function (response) {
     document.getElementById("quoteAuthor").innerHTML = "-" + response.author;
 });
 
+// Calendar
 var today = new Date();
 var currentMonth = today.getMonth();
 var currentYear = today.getFullYear();
