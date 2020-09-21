@@ -20,6 +20,667 @@
 </head>
 
 <body>
+  <!DOCTYPE html>
+  <html>
+  <section class="section" id="schedule">
+    <div class="container">
+      <div class="tabs is-centered is-toggle is-toggle-rounded" id="scheduleNavbar">
+        <ul>
+          <li id="monthNav">
+            <a>
+              <span>Month</span>
+            </a>
+          </li>
+          <li id="weekNav">
+            <a>
+              <span>Week</span>
+            </a>
+          </li>
+          <li id="dayNav" class="is-active">
+            <a>
+              <span>Day</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container is-hidden" id="weekView">
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Sunday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day0Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+            </div>
+            <button class="button is-warning" id="day0TaskNum">#</button>
+          </div>
+        </nav>
+
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Monday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day1Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+            </div>
+            <button class="button is-warning" id="day1TaskNum">#</button>
+
+          </div>
+        </nav>
+
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Tuesday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day2Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+            </div>
+            <button class="button is-warning" id="day2TaskNum">#</button>
+          </div>
+        </nav>
+
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Wednesday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day3Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+            </div>
+            <button class="button is-warning" id="day3TaskNum">#</button>
+          </div>
+        </nav>
+
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Thursday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day4Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+            </div>
+            <button class="button is-warning" id="day4TaskNum">#</button>
+          </div>
+        </nav>
+
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Friday</strong>
+              </p>
+            </div>
+          </div>
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day5Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+            </div>
+            <button class="button is-warning" id="day5TaskNum">#</button>
+          </div>
+        </nav>
+
+        <nav class="level box is-mobile">
+          <!-- Left side -->
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-5">
+                <strong>Saturday</strong>
+              </p>
+            </div>
+          </div>
+
+          <!-- Right side -->
+          <div class="level-right">
+            <div class="level-item is-hidden">
+              <img id="day6Icon" alt="Weather Icon" src="http://openweathermap.org/img/wn/10d.png">
+            </div>
+            <button class="button is-warning" id="day6TaskNum">#</button>
+          </div>
+        </nav>
+      </div>
+
+
+      <div class="container is-hidden" id="dayView">
+        <div class="block has-text-centered">
+          <h1 class="title"><span id="focusedDay">Monday</span> <span id="focusedDate">1/1/2020</span></h1>
+        </div>
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">0:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour0Tasks" class="table is-striped">
+              <tr>
+                <td>Task 1</td>
+              </tr>
+              <tr>
+                <td>Task 2</td>
+              </tr>
+              <tr>
+                <td>Task 3</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">1:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour1Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">2:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour2Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">3:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour3Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">4:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour4Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">5:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour5Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">6:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour6Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">7:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour7Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">8:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour8Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">9:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour9Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">10:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour10Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">11:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour11Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">12:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour12Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">13:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour13Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">14:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour14Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">15:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour15Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">16:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour16Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">17:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour17Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">18:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour18Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">19:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour19Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">20:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour20Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">21:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour21Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">22:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour22Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">23:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour23Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="columns block" style="border-bottom-style: groove;">
+          <div class="column is-one-quarter">
+            <h1 class="title">24:00</h1>
+          </div>
+          <div class="column">
+            <table id="hour24Tasks" class="table is-striped">
+
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="container">
+        <article class="message">
+          <div class="message-header">
+            <h3 id="monthAndYear" class="has-text-white title">Month and Year</h3>
+          </div>
+          <div class="message-body">
+            <table class="table is-bordered" id="calendar">
+              <thead>
+                <tr>
+                  <th>Sun</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                </tr>
+              </thead>
+
+              <tbody id="calendar-body">
+
+              </tbody>
+            </table>
+
+            <div class="control">
+
+              <button class="button is-outlined is-primary" id="previous" onclick="previous()">Previous</button>
+
+              <button class="button is-outlined is-primary" id="next" onclick="next()">Next</button>
+            </div>
+            <br />
+            <div class="field">
+              <label class="label" for="month">Jump To: </label>
+              <div class="control">
+                <div class="select">
+
+                  <select class="select" name="month" id="month" onchange="jump()">
+                    <option value=0>Jan</option>
+                    <option value=1>Feb</option>
+                    <option value=2>Mar</option>
+                    <option value=3>Apr</option>
+                    <option value=4>May</option>
+                    <option value=5>Jun</option>
+                    <option value=6>Jul</option>
+                    <option value=7>Aug</option>
+                    <option value=8>Sep</option>
+                    <option value=9>Oct</option>
+                    <option value=10>Nov</option>
+                    <option value=11>Dec</option>
+                  </select>
+                </div>
+
+                <div class="select">
+                  <label for="year"></label>
+                  <select class="select" name="year" id="year" onchange="jump()">
+                    <option value=1990>1990</option>
+                    <option value=1991>1991</option>
+                    <option value=1992>1992</option>
+                    <option value=1993>1993</option>
+                    <option value=1994>1994</option>
+                    <option value=1995>1995</option>
+                    <option value=1996>1996</option>
+                    <option value=1997>1997</option>
+                    <option value=1998>1998</option>
+                    <option value=1999>1999</option>
+                    <option value=2000>2000</option>
+                    <option value=2001>2001</option>
+                    <option value=2002>2002</option>
+                    <option value=2003>2003</option>
+                    <option value=2004>2004</option>
+                    <option value=2005>2005</option>
+                    <option value=2006>2006</option>
+                    <option value=2007>2007</option>
+                    <option value=2008>2008</option>
+                    <option value=2009>2009</option>
+                    <option value=2010>2010</option>
+                    <option value=2011>2011</option>
+                    <option value=2012>2012</option>
+                    <option value=2013>2013</option>
+                    <option value=2014>2014</option>
+                    <option value=2015>2015</option>
+                    <option value=2016>2016</option>
+                    <option value=2017>2017</option>
+                    <option value=2018>2018</option>
+                    <option value=2019>2019</option>
+                    <option value=2020>2020</option>
+                    <option value=2021>2021</option>
+                    <option value=2022>2022</option>
+                    <option value=2023>2023</option>
+                    <option value=2024>2024</option>
+                    <option value=2025>2025</option>
+                    <option value=2026>2026</option>
+                    <option value=2027>2027</option>
+                    <option value=2028>2028</option>
+                    <option value=2029>2029</option>
+                    <option value=2030>2030</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    var today = new Date();
+    var currentMonth = today.getMonth();
+    var currentYear = today.getFullYear();
+    var selectYear = document.getElementById("year");
+    var selectMonth = document.getElementById("month");
+
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    var monthAndYear = document.getElementById("monthAndYear");
+    showCalendar(currentMonth, currentYear);
+
+
+    function next() {
+      if (currentMonth === 11) {
+        currentYear++;
+        currentMonth = 0;
+      } else {
+        currentMonth++;
+      }
+      showCalendar(currentMonth, currentYear);
+    }
+
+    function previous() {
+      if (currentMonth === 0) {
+        currentYear--;
+        currentMonth = 11;
+      } else {
+        currentMonth--;
+      }
+      showCalendar(currentMonth, currentYear);
+    }
+
+    function jump() {
+      currentYear = parseInt(selectYear.value);
+      currentMonth = parseInt(selectMonth.value);
+      showCalendar(currentMonth, currentYear);
+    }
+
+    function showCalendar(month, year) {
+
+      let firstDay = (new Date(year, month)).getDay();
+
+      tbl = document.getElementById("calendar-body"); // body of the calendar
+
+      // clearing all previous cells
+      tbl.innerHTML = "";
+
+      // filing data about month and in the page via DOM.
+      monthAndYear.innerHTML = months[month] + " " + year;
+      selectYear.value = year;
+      selectMonth.value = month;
+
+      // creating all cells
+      let date = 1;
+      for (let i = 0; i < 6; i++) {
+        // creates a table row
+        let row = document.createElement("tr");
+
+        //creating individual cells, filing them up with data.
+        for (let j = 0; j < 7; j++) {
+          if (i === 0 && j < firstDay) {
+            cell = document.createElement("td");
+            cellText = document.createTextNode("");
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+          } else if (date > daysInMonth(month, year)) {
+            break;
+          } else {
+            cell = document.createElement("td");
+            cellText = document.createTextNode(date);
+            if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+              cell.classList.add("is-info");
+            } // color today's date
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+            date++;
+          }
+
+
+        }
+
+        tbl.appendChild(row); // appending each row into calendar body.
+      }
+
+    }
+
+
+    // check how many days in a month
+    function daysInMonth(month, year) {
+      return 32 - new Date(year, month, 32).getDate();
+    }
+  </script>
 
   <div class="modal">
     <div class="modal-background"></div>
@@ -29,26 +690,21 @@
           <p class="card-header-title is-centered">
             Task
           </p>
-          <a href="#" class="card-header-icon" aria-label="more options">
-            <span class="icon">
-              <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-          </a>
         </header>
         <div class="card-content">
           <div class="content">
             <form>
               <div class="field">
                 <div class="control">
-                  <label class="label" for="task-name">Task Name</label>
-                  <input class="input" type="text" placeholder="Task Name" id="task-name" name="task-name">
+                  <label class="label">Task Name</label>
+                  <input class="input" type="text" placeholder="Task Name">
                 </div>
               </div>
               <div class="field">
                 <div class="control">
                   <label class="label">Category</label>
                   <div class="select">
-                    <select id="task-cat-select">
+                    <select>
                       <option>Daily Tasks</option>
                     </select>
                   </div>
@@ -69,32 +725,34 @@
         </form>
       </div>
       <button class="modal-close is-large" aria-label="close"></button>
-    </div></div></div>
-    
-    <nav class="tabs navbar is-fullwidth is-boxed is-toggle is-fixed-bottom">
-        <ul>
-          <li>
-            <a>
-              <span>Tasks</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span>Calendar</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span>Schedule</span>
+    </div>
+  </div>
+  </div>
 
-            </a>
-          </li>
-        </ul>
-    </nav>
+  <nav class="tabs navbar is-fullwidth is-boxed is-toggle is-fixed-bottom">
+    <ul>
+      <li id="tasksNav">
+        <a>
+          <span>Tasks</span>
+        </a>
+      </li>
+      <li id="calNav">
+        <a>
+          <span>Calendar</span>
+        </a>
+      </li>
+      <li id="scheduleNav">
+        <a>
+          <span>Schedule</span>
 
+        </a>
+      </li>
+    </ul>
+  </nav>
+  </div>
 
-    <!--Link to external Javascript-->
-    <script src="./assets/script.js"></script>
+  <!--Link to external Javascript-->
+  <!-- <script src="./assets/script.js"></script> -->
 </body>
 
 </html>
