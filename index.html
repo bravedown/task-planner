@@ -20,8 +20,6 @@
 </head>
 
 <body>
-  <!DOCTYPE html>
-  <html>
   <section class="section" id="schedule">
     <div class="container">
       <div class="tabs is-centered is-toggle is-toggle-rounded" id="scheduleNavbar">
@@ -175,313 +173,25 @@
       </div>
 
 
-      <div class="container is-hidden" id="dayView">
+      <div class="container" id="dayView">
         <div class="block has-text-centered">
           <h1 class="title"><span id="focusedDay">Monday</span> <span id="focusedDate">1/1/2020</span></h1>
         </div>
 
-        <div class="columns block" style="border-bottom-style: groove;">
+        <!-- timeblock layout
+        <div id="0" class="columns block timeblock">
           <div class="column is-one-quarter">
-            <h1 class="title">0:00</h1>
-          </div>
-          <div class="column">
+            <h1 class="title">12 AM</h1>
+          </div><div class="column">
             <table id="hour0Tasks" class="table is-striped">
-              <tr>
-                <td>Task 1</td>
-              </tr>
-              <tr>
-                <td>Task 2</td>
-              </tr>
-              <tr>
-                <td>Task 3</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">1:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour1Tasks" class="table is-striped">
 
             </table>
           </div>
-        </div>
+        </div> -->
 
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">2:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour2Tasks" class="table is-striped">
 
-            </table>
-          </div>
-        </div>
 
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">3:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour3Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">4:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour4Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">5:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour5Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">6:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour6Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">7:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour7Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">8:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour8Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">9:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour9Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">10:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour10Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">11:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour11Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">12:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour12Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">13:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour13Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">14:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour14Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">15:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour15Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">16:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour16Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">17:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour17Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">18:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour18Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">19:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour19Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">20:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour20Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">21:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour21Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">22:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour22Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">23:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour23Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-
-
-        <div class="columns block" style="border-bottom-style: groove;">
-          <div class="column is-one-quarter">
-            <h1 class="title">24:00</h1>
-          </div>
-          <div class="column">
-            <table id="hour24Tasks" class="table is-striped">
-
-            </table>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="container">
+      <div class="container is-hidden">
         <article class="message">
           <div class="message-header">
             <h3 id="monthAndYear" class="has-text-white title">Month and Year</h3>
@@ -752,7 +462,7 @@
   </div>
 
   <!--Link to external Javascript-->
-  <!-- <script src="./assets/script.js"></script> -->
+  <script src="./Assets/Javascript/script.js"></script>
 </body>
 
 </html>
