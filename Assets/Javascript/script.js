@@ -1,6 +1,11 @@
 var info = JSON.parse(localStorage.getItem("task-planner-data"));
 var hours = [[12,"AM"],[1,"AM"],[2,"AM"],[3,"AM"],[4,"AM"],[5,"AM"],[6,"AM"],[7,"AM"],[8,"AM"],[9,"AM"],[10,"AM"],[11,"AM"],[12,"PM"],[1,"PM"],[2,"PM"],[3,"PM"],[4,"PM"],[5,"PM"],[6,"PM"],[7,"PM"],[8,"PM"],[9,"PM"],[10,"PM"],[11,"PM"]];
-!info ? info = {} : console.log("Loaded info from storage.");
+!info ? info = {
+    placeTaskState: {},
+    getTaskState: {},
+    taskCats: {}
+} 
+: console.log("Loaded info from storage.");
 init();
 
 function init() {
@@ -16,7 +21,7 @@ function startPlaceTask() {
     changePage("schedule");
     info.placeTaskState = {
         state: true,
-        task: taskData,
+        task: taskData
     };
     storeInfo();
 }
@@ -35,7 +40,7 @@ function startGetTask() {
         taskArea: `#${$(this).attr("id")}-task`
     };
     storeInfo();
-    changePage("tasks");
+    changePage("schedule");
 }
 
 // When you click a task to place it in a timeblock
@@ -80,7 +85,7 @@ function generateTasks() {
         newCat.text(e);
         $("#task-cats").append(newCat);
         $("#task-cat-select").append($(`<option>${e}</option>`))
-    })
+    });
 }
 
 function makeTaskCategory() {
@@ -91,7 +96,11 @@ function makeTaskCategory() {
 }
 
 function makeTask() {
-    
+    info.taskCats["cat-here"][$("#task-name").val()] = {
+        //store stuff here
+    };
+    storeInfo();
+    generateTasks();
 }
 
 // function editTask(event){
