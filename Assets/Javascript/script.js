@@ -68,7 +68,14 @@ function makeTimeblock(hour){
     // Creates a string in the format of: hour = 270, hourStr = "4:30 AM", hour = 780, hourStr = "1 PM"
     var hourArr = hours[Math.floor(hour / 60)];
     var hourStr = hourArr[0] + (hour % 60 !== 0 ? `:${hour % 60}` : "") + ` ${hourArr[1]}`;
-    var newBlock = $(`<div id="${hour}" class="columns block timeblock">`);
+    var currentHour = new Date();
+    if (hour == currentHour.getHours()*60){
+        
+        var newBlock = $(`<div id="${hour}" class="columns block has-background-primary timeblock">`);}
+
+        else{var newBlock = $(`<div id="${hour}" class="columns block timeblock">`);}
+
+    // var newBlock = $(`<div id="${hour}" class="columns block has-background-primary timeblock">`);
     var timeCol = $(`<div class="column is-one-quarter">`);
     timeCol.append($(`<h3 class="title" style="font-family: monospace;">${hourStr}</h1>`));
     var taskCol = $(`<div class="column">`);
