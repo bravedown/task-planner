@@ -12,8 +12,8 @@ var hours = [[12,"AM"],[1,"AM"],[2,"AM"],[3,"AM"],[4,"AM"],[5,"AM"],[6,"AM"],[7,
 : console.log("Loaded info from storage.");
 init();
 
-function init() {
-    generateTimeblocks();
+function init() { 
+    setInterval(generateTimeblocks(baseInterval = 60), 60000)
     generateTasks();
     $(document).on("click", ".timeblock", () => info.placeTaskState.state ? placeTask() : startGetTask() );
     $(document).on("click", ".task", () => info.getTaskState.state ? getTask() : startPlaceTask() );
@@ -126,7 +126,6 @@ function makeTask() {
     generateTasks();
 }
 
-setInterval(generateTimeblocks(baseInterval = 60), 60000)
 
 // function editTask(event){
 //     event.stopPropagation();
