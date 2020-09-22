@@ -71,11 +71,10 @@ function makeTimeblock(hour){
     var currentHour = new Date();
     if (hour == currentHour.getHours()*60){
         
-        var newBlock = $(`<div id="${hour}" class="columns block has-background-primary timeblock">`);}
+        var newBlock = $(`<div id="${hour}"class="columns block has-background-primary timeblock">`);}
 
         else{var newBlock = $(`<div id="${hour}" class="columns block timeblock">`);}
 
-    // var newBlock = $(`<div id="${hour}" class="columns block has-background-primary timeblock">`);
     var timeCol = $(`<div class="column is-one-quarter">`);
     timeCol.append($(`<h3 class="title" style="font-family: monospace;">${hourStr}</h1>`));
     var taskCol = $(`<div class="column">`);
@@ -126,6 +125,8 @@ function makeTask() {
     storeInfo();
     generateTasks();
 }
+
+setInterval(generateTimeblocks(baseInterval = 60), 60000)
 
 // function editTask(event){
 //     event.stopPropagation();
