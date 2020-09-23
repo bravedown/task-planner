@@ -1,0 +1,13 @@
+.timeblock {
+    border-bottom-style: groove;
+}
+
+.timeblock h3 span {
+    color: white;
+}
+
+.round {
+    border-radius: 50000000000000000000000000000px;
+    border: 1px solid black;
+    padding: 15px;
+}
