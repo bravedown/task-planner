@@ -9,12 +9,13 @@ function weather(position) {
         method: "GET",  
     }).then(function (WeatherData) {
         var today =new Date();
-        $("#quoteText").attr("OuterText","here");
+        console.log("here")
         var dayNum = today.getDay();
         for (var i = 0; i < 7; i++) {
             var j = i + dayNum;
-            $("#day" + j + "Icon").attr("src", "httpw://openweathermap.org/img/wn/" + WeatherData.daily[i].weather[0].icon + "@2x.png");
-
+            $("#day" + j + "Icon").removeClass("is-hidden");
+            $("#day" + j + "Icon").attr("src", "https://openweathermap.org/img/wn/" + WeatherData.daily[i].weather[0].icon + ".png");
+            console.log("here")
         }
     });
 }
