@@ -3,6 +3,7 @@ var info = JSON.parse(localStorage.getItem("task-planner-data"));
 var hours = [["12","AM"],["1","AM"],["2","AM"],["3","AM"],["4","AM"],["5","AM"],["6","AM"],["7","AM"],["8","AM"],["9","AM"],["10","AM"],["11","AM"],["12","PM"],["1","PM"],["2","PM"],["3","PM"],["4","PM"],["5","PM"],["6","PM"],["7","PM"],["8","PM"],["9","PM"],["10","PM"],["11","PM"]];
 var time = moment();
 var currentDay = time.format("MMM D YYYY");
+
 info = !info ? {
     placeTaskState: {
         state: false
@@ -189,6 +190,43 @@ function selectDay(event) {
 
     }
 }
+
+//Weather Icon
+var position = navigator.geolocation.getCurrentPosition(weather);
+function weather(position) {
+ 
+    var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&exclude=minutely,hourly&units=imperial&appid=7e254ff99ca72e0b2e785026f47b52f0";
+    $.ajax({
+        url: queryURL,
+        method: "GET",  
+    }).then(function (WeatherData) {
+        var today =new Date();
+        $("#quoteText").attr("OuterText","here");
+        var dayNum = today.getDay();
+        for (var i = 0; i < 7; i++) {
+            var j = i + dayNum;
+            $("#day" + j + "Icon").attr("src", "https://openweathermap.org/img/wn/" + WeatherData.daily[i].weather[0].icon + "@2x.png");
+
+        }
+    });
+}
+
+//Quote of the day
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote?token=ipworld.info",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com",
+		"x-rapidapi-key": "86f8075ee1msh6ecee30eacd4ae0p15d6f4jsncf63c4d54671"
+	}
+}
+
+$.ajax(settings).done(function (response) {
+    document.getElementById("quoteText").innerHTML = response.text+"\"";
+    document.getElementById("quoteAuthor").innerHTML = "-" + response.author;
+});
 
 // function editTask(event){
 //     event.stopPropagation();
