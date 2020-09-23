@@ -158,10 +158,10 @@ function generateTasks() {
     $("#task-cats").empty();
     $("#task-cat-select").empty();
     Object.keys(info.taskCats).forEach(e => {
-        let newCat = $("<div class='styling here'>")
+        let newCat = $("<div class='styling here'>");
         newCat.text(e);
         $("#task-cats").append(newCat);
-        $("#task-cat-select").append($(`<option>${e}</option>`))
+        $("#task-cat-select").append($(`<option>${e}</option>`));
     });
 }
 
