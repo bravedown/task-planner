@@ -47,125 +47,7 @@
   
         </div>
         <br />
-        <article class="message is-primary" id="dailyTaskCat">
-          <div class="message-header">
-            <b>
-              <p>Daily Tasks</p>
-            </b>
-          </div>
-          <div class="message-body">
-            <ul>
-              <li id="task0Cat0">
-                <nav class="level is-mobile">
-                  <!-- Left side -->
-                  <div class="level-left">
-                    <div class="level-item">
-                      <p class="subtitle has-text-weight-bold is-5" id="task0Cat0desc">
-                        Task 0
-                      </p>
-                    </div>
-                    <div class="level-item">
-                      <p id="task0Cat0Time">Time</p>
-                    </div>
-                  </div>
-                  <!-- Right side -->
-                  <div class="level-right">
-  
-                    <div class="level-item">
-                      <button id="task0Cat0Edit">Edit</button>
-                    </div>
-                  </div>
-                </nav>
-              </li>
-              <br />
-              <li id="task1Cat0">
-                <nav class="level is-mobile">
-                  <!-- Left side -->
-                  <div class="level-left">
-                    <div class="level-item">
-                      <p class="subtitle has-text-weight-bold is-5" id="task1Cat0desc">
-                        Task 1
-                      </p>
-                    </div>
-                    <div class="level-item">
-                      <p id="task1Cat0Time">Time</p>
-                    </div>
-                  </div>
-                  <!-- Right side -->
-                  <div class="level-right">
-  
-                    <div class="level-item">
-                      <button id="task1Cat0Edit">Edit</button>
-                    </div>
-                  </div>
-                </nav>
-              </li>
-            </ul>
-          </div>
-        </article>
-  
-        <article class="message is-info" id="Cat0">
-          <div class="message-header">
-            <b>
-              <p>Category 1</p>
-            </b>
-          </div>
-          <div class="message-body is-toggle">
-            <ul>
-              <li id="task0Cat1" class="task">
-                <a class="level is-mobile round">
-                  <!-- Left side -->
-                  <div class="level-left">
-                    <div class="level-item">
-                      <p class="subtitle has-text-weight-bold is-5" id="task0Cat1desc">
-                        Task 0
-                      </p>
-                    </div>
-                    <div class="level-item">
-                      <p id="task0Cat1Day">Day</p>
-                    </div>
-                    <div class="level-item">
-                      <p id="task0Cat1Time">Time</p>
-                    </div>
-                  </div>
-                  <!-- Right side -->
-                  <div class="level-right">
-  
-                    <div class="level-item">
-                      <button class="edit button" id="task0Cat1Edit">Edit</button>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <br />
-              <li id="task1Cat0">
-                <nav class="level is-mobile">
-                  <!-- Left side -->
-                  <div class="level-left">
-                    <div class="level-item">
-                      <p class="subtitle has-text-weight-bold is-5" id="task1Cat1desc">
-                        Task 1
-                      </p>
-                    </div>
-                    <div class="level-item">
-                      <p id="task1Cat1Day">Day</p>
-                    </div>
-                    <div class="level-item">
-                      <p id="task1Cat1Time">Time</p>
-                    </div>
-                  </div>
-                  <!-- Right side -->
-                  <div class="level-right">
-  
-                    <div class="level-item">
-                      <button class="edit" id="task1Cat1Edit">Edit</button>
-                    </div>
-                  </div>
-                </nav>
-              </li>
-            </ul>
-          </div>
-        </article>
+        <div id="task-cats"></div>
   
         <div class="columns">
           <div class="column is-one-quarter"></div>
@@ -551,34 +433,25 @@
               <div class="field">
                 <div class="control">
                   <label class="label">Task Name</label>
-                  <input class="input" type="text" placeholder="Task Name">
+                  <input class="input" id="taskInput" type="text" placeholder="Task Name">
                 </div>
               </div>
-              <div class="field">
-                <div class="control">
-                  <label class="label">Category</label>
-                  <div class="select">
-                    <select>
-                      <option>Daily Tasks</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="field is-grouped">
+              
+              <!-- <div class="field is-grouped">
                 <div class="control">
                   <label class="label">Date</label>
                   <input type="datetime-local">
                 </div>
-              </div>
+              </div> -->
           </div>
         </div>
         <footer class="card-footer">
-          <button class="button card-footer-item">Cancel</button>
-          <input type="submit" value="Submit" class="button card-footer-item"></input>
+          <button class="button card-footer-item" type="button" id="cancel">Cancel</button>
+          <button class="button card-footer-item makeTask" type="button">Make Task</button>
         </footer>
         </form>
       </div>
-      <button class="modal-close is-large" aria-label="close"></button>
+      <button class="modal-close is-large" aria-label="close" onclick="$('.modal').removeClass('is-active')"></button>
     </div>
   </div>
   </div>

@@ -10,4 +10,13 @@
     border-radius: 50000000000000000000000000000px;
     border: 1px solid black;
     padding: 15px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+article li {
+    margin-bottom: 10px;
 }

@@ -3,6 +3,7 @@ var info = JSON.parse(localStorage.getItem("task-planner-data"));
 var hours = [["12","AM"],["1","AM"],["2","AM"],["3","AM"],["4","AM"],["5","AM"],["6","AM"],["7","AM"],["8","AM"],["9","AM"],["10","AM"],["11","AM"],["12","PM"],["1","PM"],["2","PM"],["3","PM"],["4","PM"],["5","PM"],["6","PM"],["7","PM"],["8","PM"],["9","PM"],["10","PM"],["11","PM"]];
 var time = moment();
 var currentDay = time.format("MMM D YYYY");
+var category;
 
 info = !info ? {
     placeTaskState: {
@@ -17,8 +18,7 @@ info = !info ? {
 } : info;
 init();
 
-function init() { 
-    setDay();
+function init() {
     generateTimeblocks();
     generateTasks();
     changePage(info.page);
@@ -26,10 +26,19 @@ function init() {
     $(document).on("click", ".task", taskClick);
     $("#new-cat").on("click", makeTaskCategory);
     $(document).on("click", ".navLink", navClick);
+    $(document).on("click", ".makeTask", makeTask);
+    $(document).on("click", ".newTask", newTask);
+
+}
+
+function newTask() {
+    $('.modal').addClass('is-active')
+    category = $(this.parentElement.parentElement).attr("id");
+    console.log(category);
 }
 
 function taskClick() {
-    getTask(this);
+    if(info.getTaskState.state) getTask(this);
 }
 function timeClick() {
     startGetTask(this) 
@@ -46,13 +55,9 @@ function navClick() {
     changePage(page);
 }
 
-function updateTime() {
-    time = moment();
-}
-
-function setDay() {
-    updateTime();
+function setDay(day = false) {
     $("#focusedDay").text(time.format("dddd[,] MMMM Do") )
+    if(day) $("#focusedDay").text(day);
 }
 
 function startPlaceTask() {
@@ -92,11 +97,12 @@ function getTask(event) {
     console.log(info.days[currentDay][hour].tasks)
     info.getTaskState.state = false;
     storeInfo();
-    generateTimeblocks();
+    generateTimeblocks(currentDay);
     changePage("dayView");
 }
 
 function generateTimeblocks(day = time.format("MMM D YYYY"), baseInterval = 60) {
+    setDay(day);
     let timeblocks = []
     $("#timeblocks").empty();
     if(!info.days[day]){
@@ -113,6 +119,7 @@ function generateTimeblocks(day = time.format("MMM D YYYY"), baseInterval = 60) 
         Object.keys(info.days[day]).forEach(e => timeblocks.push(makeTimeblock(e, day)))
         timeblocks.forEach(e => $("#timeblocks").append(e));
     }
+    storeInfo();
 }
 
 function makeTimeblock(hour, day = false){
@@ -155,41 +162,92 @@ function changePage(goTo){
     storeInfo();
 }
 
+
+
 function generateTasks() {
     $("#task-cats").empty();
     $("#task-cat-select").empty();
     Object.keys(info.taskCats).forEach(e => {
-        let newCat = $("<div class='styling here'>");
-        newCat.text(e);
+        let newCat = $(`<article class="message is-info" id="${e}">
+        <div class="message-header">
+          <b>
+            <p>${e}</p>
+          </b>
+        </div>
+        <div class="message-body">
+          <ul id="${e}tasks">
+          </ul>
+          <button class="newTask button">New Task</button>
+          <button class="removeCat button is-danger">Remove Category</button>
+        </div>
+      </article>`);
+
         $("#task-cats").append(newCat);
-        $("#task-cat-select").append($(`<option>${e}</option>`));
+        $("#task-cat-select").append($(`<option>${e}</option>`))
+        info.taskCats[e].tasks.forEach(f => {
+            console.log(`${e}tasks`)
+            $(`#${e}tasks`).append(`<li id="${f}" class="task">
+            <a class="level is-mobile round">
+              <!-- Left side -->
+              <div class="level-left">
+                <div class="level-item">
+                  <p class="subtitle has-text-weight-bold is-5" id="task0Cat1desc">
+                    ${f}
+                  </p>
+                </div>
+              </div>
+              <!-- Right side -->
+              <div class="level-right">
+
+                <div class="level-item">
+                  <button class="edit button" id="task0Cat1Edit">Edit</button>
+                </div>
+              </div>
+            </a>
+          </li>`)
+        })
     });
+
+    
 }
 
+document.getElementById("cancel").addEventListener("click", function(event){
+    $('.modal').removeClass('is-active');
+});
+
+
 function makeTaskCategory() {
-    info.taskCats[$("#cat-input").val()] = {};
+    info.taskCats[$("#cat-input").val()] = {tasks: []};
     storeInfo();
     generateTasks();
 }
 
 function makeTask() {
-    info.taskCats["cat-here"][$("#task-name").val()] = {
-        //store stuff here
-    };
+    
+    info.taskCats[category].tasks.push($("#taskInput").val());
     storeInfo();
+    $('.modal').removeClass('is-active')
     generateTasks();
 }
+
+
 
 $("#calendar-body").on("click", selectDay);
 
 function selectDay(event) {
     let dayNumber = event.target.textContent
     if(/\d/.test(dayNumber) ){
-        console.log(dayNumber)
-        time.format("MMM")
+        let monthYear = $("#monthAndYear").text();
+        let monthDayYear = monthYear.slice(0,3) + " " + dayNumber + " " + monthYear.slice(4,8);
+        currentDay = monthDayYear;
+        generateTimeblocks(monthDayYear);
+        changePage("dayView");
+        
 
     }
 }
+
+
 
 //Weather Icon
 var position = navigator.geolocation.getCurrentPosition(weather);
@@ -206,7 +264,7 @@ function weather(position) {
         for (var i = 0; i < 7; i++) {
             var j = i + dayNum;
             $("#day" + j + "Icon").attr("src", "https://openweathermap.org/img/wn/" + WeatherData.daily[i].weather[0].icon + "@2x.png");
-
+            $("#day" + j + "Icon").parent().removeClass("is-hidden");
         }
     });
 }
