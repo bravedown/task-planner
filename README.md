@@ -10,4 +10,4 @@ We (David Brown, Morgan Miller, and Michael Mayor) are Friends of Dirt!
 View [issues](https://github.com/bravedown/task-planner/issues)
 
 ## Deploy Link
-[Deployed Site] (https://bravedown.github.io/task-planner/)
+[Deployed Site](https://bravedown.github.io/task-planner/)
